@@ -49,7 +49,7 @@ export const PROGRAMS: Program[] = [
       { title: 'Everyday work', lessons: ['Writing and rewriting', 'Summarising documents and meetings', 'Working with files and data'] },
       { title: 'Going further', lessons: ['Custom instructions and memory', 'Building a custom GPT', 'Checking and citing answers'] },
     ],
-    kind: 'chat', color: '#17274C',
+    kind: 'chat', color: '#17274C', logo: 'chatgpt.png',
   },
   {
     slug: 'claude', title: 'Claude', area: 'AI assistants', group: 'AI assistants',
@@ -61,7 +61,7 @@ export const PROGRAMS: Program[] = [
       { title: 'Documents and projects', lessons: ['Working with long documents', 'Organising work in Projects', 'Artifacts: documents, pages and tools'] },
       { title: 'Professional use', lessons: ['Research and analysis', 'Writing in your own voice', 'Privacy and safe use'] },
     ],
-    kind: 'ai', color: '#17274C',
+    kind: 'ai', color: '#17274C', logo: 'claude.png',
   },
   {
     slug: 'gemini', title: 'Gemini', area: 'AI assistants', group: 'AI assistants',
@@ -73,7 +73,7 @@ export const PROGRAMS: Program[] = [
       { title: 'Gemini in Workspace', lessons: ['Gmail: draft, reply and summarise', 'Docs: write and edit faster', 'Sheets: organise and analyse'] },
       { title: 'Advanced use', lessons: ['Gems for repeated tasks', 'Images and files', 'Good habits and data protection'] },
     ],
-    kind: 'compass', color: '#17274C',
+    kind: 'compass', color: '#17274C', logo: 'gemini.png',
   },
   {
     slug: 'microsoft-copilot', title: 'Microsoft Copilot', area: 'AI assistants', group: 'AI assistants',
@@ -85,7 +85,7 @@ export const PROGRAMS: Program[] = [
       { title: 'Documents and data', lessons: ['Word: draft and rewrite', 'Excel: analyse and explain', 'PowerPoint: from document to deck'] },
       { title: 'Communication', lessons: ['Outlook: triage and reply', 'Teams: meetings and recaps', 'Agents and good practice'] },
     ],
-    kind: 'doc', color: '#17274C',
+    kind: 'doc', color: '#17274C', logo: 'microsoft-copilot.png',
   },
   {
     slug: 'prompt-engineering', title: 'Prompt engineering', area: 'Prompting & research', group: 'Prompting & research',
