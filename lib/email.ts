@@ -16,7 +16,7 @@ function layout(locale: Locale, body: string) {
 <div style="max-width:560px;margin:0 auto;padding:28px 16px">
 <div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(23,39,76,.10)">
 <div style="background:#17274C;padding:18px 28px">
-<img src="${base()}/assets/logo-email-white.png" width="136" height="30" alt="AI Certification" style="display:block;border:0">
+<img src="${base()}/assets/logo-email-white.png" width="133" height="30" alt="AI Certification" style="display:block;border:0">
 </div>
 <div style="background:#EAEFF8;text-align:center;padding:24px 0 0">
 <img src="${base()}/assets/kai-email.png" width="170" height="170" alt="" style="display:block;margin:0 auto;border:0">

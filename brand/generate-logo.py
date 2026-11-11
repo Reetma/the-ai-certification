@@ -1,4 +1,5 @@
-"""Generate The AI Certification logo set (outlined SVG, no font dependency)."""
+"""Generate the AI Certification logo set (outlined SVG, no font dependency).
+Usage: python3 generate-logo.py fonts/plus-jakarta-sans-latin-wght-normal.woff2 .   (font: Plus Jakarta Sans, OFL)"""
 import io, sys
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
@@ -67,7 +68,7 @@ def wordmark(x0, base, size, ink, accent):
     xa = x0
     d2, bx, w2 = shape('AI', 800, size, xa, base)
     xc = xa + w2 + sp
-    d3, _, w3 = shape('Certification', 600, size, xc, base)
+    d3, _, w3 = shape('Certification', 500, size, xc, base)
     i = bx[1]  # box of the I
     icx = (i[0] + i[2]) / 2
     sr = size * 0.26

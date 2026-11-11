@@ -63,9 +63,9 @@ Card text in `lib/catalog.ts`, full courses in `lib/learning/catalog/<slug>.ts`.
 Everything is in `brand/`: logos (SVG, text outlined so no font is needed, plus white versions and PNGs), app icons, Kai's images and the logo generator (`generate-logo.py`). `brand/apercu.png` shows the whole set.
 
 - Navy and white only, the colours of Kai: navy `#17274C` (taken from his coat), night `#0B152C`, navy accents `#1F3A75` / `#3D5A99`, cool tints `#EAEFF8`, white. Only alerts use other colours (orange, red). Font: Manrope.
-- Logo: the words “AI Certification” alone, with a four-point star above the I (no symbol next to it). The rounded navy square with a white star is only used as the app icon and favicon.
+- Logo: the words “AI Certification” alone in Plus Jakarta Sans (AI extra bold, Certification medium, OFL licence, file in `brand/fonts/`), with a four-point star above the I (no symbol next to it). The site text keeps Manrope. The rounded navy square with a white star is only used as the app icon and favicon.
 - The logo is the `components/Logo.tsx` component: it takes the text colour (navy on light pages, white on dark bands); the star inside the square takes `--logo-cut`.
-- `brand/propositions/` keeps the 5 colour directions that were compared.
+- `brand/propositions/` and `brand/polices/` keep the colour directions and the 12 fonts that were compared.
 
 ## Décisions
 
