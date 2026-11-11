@@ -54,11 +54,10 @@ def star(cx, cy, r, k=0.16):
             f'Q{cx - q:.2f} {cy - q:.2f} {cx:.2f} {cy - r:.2f}Z')
 
 
-def symbol(cx, cy, r, bg=NAVY, ring=GOLD, st=GOLD):
-    """Medal mark: navy disc, gold ring, gold sparkle."""
-    return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{bg}"/>'
-            f'<circle cx="{cx}" cy="{cy}" r="{r * 0.84:.2f}" fill="none" stroke="{ring}" stroke-width="{r * 0.07:.2f}"/>'
-            f'<path d="{star(cx, cy, r * 0.56)}" fill="{st}"/>')
+def symbol(cx, cy, r, bg=NAVY, st=WHITE):
+    """Mark: a rounded square with the four-point star in the middle (navy and white only)."""
+    return (f'<rect x="{cx - r:.2f}" y="{cy - r:.2f}" width="{2 * r:.2f}" height="{2 * r:.2f}" rx="{r * 0.5:.2f}" fill="{bg}"/>'
+            f'<path d="{star(cx, cy, r * 0.6, 0.18)}" fill="{st}"/>')
 
 
 def wordmark(x0, base, size, ink, accent):
@@ -109,23 +108,23 @@ def write(name, w, h, body, bg=None):
     open(f'{OUT}/{name}', 'w').write(svg)
 
 
-# 1. Horizontal: medal + wordmark (wordmark measured first so the star is never clipped)
+# 1. Horizontal: mark + wordmark (wordmark measured first so the star is never clipped)
 for name, ink in (('logo.svg', NAVY), ('logo-white.svg', WHITE)):
     size = 100; pad = 20; r = 58; gap = 30
-    probe, ww, top = wordmark(0, 0, size, ink, GOLD)   # top < 0: star height above baseline
+    probe, ww, top = wordmark(0, 0, size, ink, ink)   # top < 0: star height above baseline
     cap = size * 0.72
     H = 2 * pad + max(-top, 2 * r)
     base = pad + (-top)                                # star top sits on pad
-    cy = base - cap / 2                                # medal centred on the capitals
+    cy = base - cap / 2                                # mark centred on the capitals
     H = max(H, cy + r + pad)
-    wm, _, _ = wordmark(pad + 2 * r + gap, base, size, ink, GOLD)
-    sym = symbol(pad + r, cy, r, bg=NAVY if ink == NAVY else WHITE)
+    wm, _, _ = wordmark(pad + 2 * r + gap, base, size, ink, ink)
+    sym = symbol(pad + r, cy, r, bg=ink, st=WHITE if ink == NAVY else NAVY)
     write(name, pad + 2 * r + gap + ww + pad, H, sym + wm)
 
 # 2. Wordmark only
 for name, ink in (('wordmark.svg', NAVY), ('wordmark-white.svg', WHITE)):
     size = 100; pad = 16
-    wm, ww, top = wordmark(pad, 0, size, ink, GOLD)
+    wm, ww, top = wordmark(pad, 0, size, ink, ink)
     # shift so star top sits at pad
     body = f'<g transform="translate(0 {pad - top:.2f})">{wm}</g>'
     write(name, ww + 2 * pad, (pad - top) + size * 0.03 + pad, body)
@@ -133,20 +132,18 @@ for name, ink in (('wordmark.svg', NAVY), ('wordmark-white.svg', WHITE)):
 # 3. Stacked (for square spaces, certificate, social)
 for name, ink in (('logo-stacked.svg', NAVY), ('logo-stacked-white.svg', WHITE)):
     r = 70; W = 620; top = 30
-    sym = symbol(W / 2, top + r, r, bg=NAVY if ink == NAVY else WHITE)
-    st, sw, sh = stacked(W / 2, top + 2 * r + 30, 150, ink, GOLD)
+    sym = symbol(W / 2, top + r, r, bg=ink, st=WHITE if ink == NAVY else NAVY)
+    st, sw, sh = stacked(W / 2, top + 2 * r + 30, 150, ink, ink)
     write(name, W, top + 2 * r + 30 + sh + 40, sym + st)
 
 # 4. Symbol / app icon
 write('symbol.svg', 128, 128, symbol(64, 64, 64))
 write('icon.svg', 512, 512,
       f'<rect width="512" height="512" rx="112" fill="{NAVY}"/>'
-      f'<circle cx="256" cy="256" r="178" fill="none" stroke="{GOLD}" stroke-width="22"/>'
-      f'<path d="{star(256, 256, 128)}" fill="{GOLD}"/>')
+      f'<path d="{star(256, 256, 170, 0.18)}" fill="{WHITE}"/>')
 write('icon-maskable.svg', 512, 512,
       f'<rect width="512" height="512" fill="{NAVY}"/>'
-      f'<circle cx="256" cy="256" r="140" fill="none" stroke="{GOLD}" stroke-width="18"/>'
-      f'<path d="{star(256, 256, 100)}" fill="{GOLD}"/>')
+      f'<path d="{star(256, 256, 130, 0.18)}" fill="{WHITE}"/>')
 write('favicon.svg', 64, 64,
-      f'<rect width="64" height="64" rx="14" fill="{NAVY}"/><path d="{star(32, 32, 24, 0.2)}" fill="{GOLD}"/>')
+      f'<rect width="64" height="64" rx="14" fill="{NAVY}"/><path d="{star(32, 32, 22, 0.18)}" fill="{WHITE}"/>')
 print('done')

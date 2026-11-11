@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Your The AI Certification space: lessons, exam and certificate.',
     start_url: '/space',
     display: 'standalone',
-    background_color: '#F6F6F3',
+    background_color: '#F7F8FA',
     theme_color: '#17274C',
     icons: [
       { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },

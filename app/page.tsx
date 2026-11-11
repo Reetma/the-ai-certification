@@ -105,7 +105,7 @@ export default async function Home() {
                 priority
               />
               <div className="hm-cert" aria-hidden="true">
-                <CertBadge kind="ai" color="#8A6420" size={44} />
+                <CertBadge kind="ai" color="#1F3A75" size={44} />
                 <div>
                   <small>Certificate of completion</small>
                   <strong>AI for students</strong>
